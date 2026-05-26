@@ -3185,7 +3185,7 @@ class APIServerAdapter(BasePlatformAdapter):
     # ------------------------------------------------------------------
 
     _MAX_CONCURRENT_RUNS = 10  # Prevent unbounded resource allocation
-    _RUN_STATUS_TTL = 3600  # seconds to retain terminal run status for polling
+    _RUN_STATUS_TTL = 86400  # 24h — keep run events long enough for mobile reopen-after-hours
 
     def _get_run_lock(self, run_id: str) -> "asyncio.Lock":
         lock = self._run_event_locks.get(run_id)
